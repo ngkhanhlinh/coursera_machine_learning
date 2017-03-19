@@ -22,7 +22,8 @@ theta1 = [0 ; theta(2:size(theta), :)];
 
 % Compute cost function
 h = sigmoid(X*theta);
-J = (1/m) * (-y' * log(h) - (1 - y)' *  log(1 - h)) + (lambda/2*m) * (theta1'*theta1);
+p = (lambda) * (theta1'*theta1) * (2/m);
+J = (1/m) * (-y' * log(h) - (1 - y)' *  log(1 - h)) + p;
 grad = (1/m) * X' * (h - y) + (lambda/m)*theta1;
 
 
