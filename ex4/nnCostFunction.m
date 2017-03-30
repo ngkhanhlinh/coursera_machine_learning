@@ -75,9 +75,11 @@ a3 = sigmoid(a2 * Theta2'); % 5000 x 10
 h = a3; % 5000 x 10 
 J = (1 / m) * sum(sum(-y_matrix.* log(h) - (1 - y_matrix) .*  log(1 - h)));
 
-
-
-
+% Compute regularized cost function
+Theta1 = Theta1(:,2:end); % 25 x 400 
+Theta2 = Theta2(:,2:end); % 10 x 25
+p = lambda / (2 * m) * (sum(sum(Theta1.^2)) + sum(sum(Theta2.^2))); % Theta1.*Theta1 = Theta1.^2
+J = J + p;
 
 % -------------------------------------------------------------
 
