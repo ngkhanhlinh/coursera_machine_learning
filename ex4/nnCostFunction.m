@@ -81,6 +81,14 @@ Theta2 = Theta2(:,2:end); % 10 x 25
 p = lambda / (2 * m) * (sum(sum(Theta1.^2)) + sum(sum(Theta2.^2))); % Theta1.*Theta1 = Theta1.^2
 J = J + p;
 
+% Implement the backpropagation algorithm 
+d3 = a3 - y_matrix; % 5000 x 10
+d2 = (d3 * Theta2) .* sigmoidGradient(z2); % ([5000 x 10] * [10 x 25]) .* ([5000 x 25]) 
+D1 = d2' * a1; 
+D2 = d3' * a2;
+Theta1_grad = D1 / m;
+Theta2_grad = D2 / m;
+
 % -------------------------------------------------------------
 
 % =========================================================================
