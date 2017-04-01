@@ -89,6 +89,12 @@ D2 = d3' * a2;
 Theta1_grad = D1 / m;
 Theta2_grad = D2 / m;
 
+% Implement regularization with the cost function and gradients
+p1 = lambda / m * [zeros(size(Theta1, 1), 1) Theta1]; % added a row of zeros to Theta1 
+p2 = lambda / m * [zeros(size(Theta2, 1), 1) Theta2]; % added a row of zeros to Theta2
+Theta1_grad = Theta1_grad + p1;
+Theta2_grad = Theta2_grad + p2; 
+
 % -------------------------------------------------------------
 
 % =========================================================================
