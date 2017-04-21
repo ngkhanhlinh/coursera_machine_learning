@@ -29,6 +29,8 @@ for i = 1:size(X,1)
 	[M, idx(i)] = min(dist);
 end
 
+% Need to add a second approach with matrix of [dist] and bsxfun()
+
 % =============================================================
 
 end
