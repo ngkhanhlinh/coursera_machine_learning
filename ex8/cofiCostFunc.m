@@ -40,11 +40,13 @@ Theta_grad = zeros(size(Theta));
 %                     partial derivatives w.r.t. to each element of Theta
 %
 
+% Compute the cost function
+error_factor = R .* (X * Theta' - Y);
+J = sum(sum(error_factor.^2))/2;
 
-
-
-
-
+% Set the gradients 
+X_grad = error_factor * Theta;
+Theta_grad = error_factor' * X;
 
 
 
