@@ -45,8 +45,8 @@ error_factor = R .* (X * Theta' - Y);
 J = sum(sum(error_factor.^2)) / 2 + (lambda / 2) * sum(sum(Theta.^2)) + (lambda / 2) * sum(sum(X.^2));
 
 % Set the gradients 
-X_grad = error_factor * Theta;
-Theta_grad = error_factor' * X;
+X_grad = error_factor * Theta + X * lambda;
+Theta_grad = error_factor' * X + Theta * lambda;
 
 
 
